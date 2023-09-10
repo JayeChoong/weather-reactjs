@@ -1,0 +1,250 @@
+.raw {
+    width: 90%;
+    margin: 4rem auto;
+
+    &-weather-title {
+        font-size: 25px;
+        font-weight: 600;
+        border-bottom: 1px solid black;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.history {
+    &-empty {
+        text-align: center;
+        font-size: 18px;
+    }
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.list-group-item:last-child {
+    border-bottom-width: initial;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+}
+
+.weather-details {
+    &-title {
+        font-size: 35px;
+        font-weight: 600;
+    }
+}
+
+
+//weather
+.weather {
+    display: flex;
+    flex-direction: column;
+    background-image: var(--background-image);
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+
+    &-search {
+        width: 40%;
+        margin: 4rem auto 2rem;
+        display: flex;
+        justify-content: space-between;
+
+        .form-control {
+            font-size: 15px;
+            height: 45px;
+            min-height: auto;
+            background-color: rgba(var(--container-bar-background), 0.3);
+            border: none;
+            color: var(--body-font-color)
+        }
+
+        .form-floating {
+            width: 85%;
+        }
+
+        .form-floating>label {
+            margin-left: 0.5rem;
+            font-size: 14px;
+            padding: 0.55rem 0;
+        }
+
+        .form-floating>.form-control:not(:placeholder-shown)~label,
+        .form-floating>.form-control:focus~label {
+            color: var(--floating-input)
+        }
+
+        .form-floating>.form-control:focus~label::after,
+        .form-floating>.form-control:not(:placeholder-shown)~label::after {
+            background-color: rgba(var(--container-bar-background), 0.2);
+            inset: unset;
+        }
+
+
+        .search-button {
+            align-self: center;
+            border-radius: 20px;
+
+            button {
+                background: var(--search-icon-background);
+                height: 45px
+            }
+
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    &-title {
+        margin: 0.5rem 0;
+    }
+
+    &-container {
+        width: 40%;
+        margin: 3rem auto;
+        background-color: rgba(var(--container-bar-background), 0.2);
+        padding: 2rem;
+        border-radius: 24px;
+        position: relative;
+    }
+
+    &-image {
+        position: absolute;
+        width: 250px;
+        right: 2rem;
+        top: -5rem
+    }
+
+    &-details {
+        margin: 1.5rem;
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+            color: var(--weather-font-color)
+        }
+    }
+
+    &-degree {
+        color: var(--weather-temperature-color);
+        font-weight: 600;
+        font-size: 65px;
+
+    }
+
+    &-history {
+        background-color: rgba(var(--container-bar-background), 0.2);
+        padding: 2rem;
+        border-radius: 12px;
+    }
+
+    .list-group-item {
+        background-color: rgba(var(--container-bar-background), 0.2);
+        border: none;
+        margin: 0.5rem 0;
+        border-radius: 12px;
+        color: var(--body-font-color)
+    }
+
+    &-country {
+        font-weight: 700;
+        color: var(--weather-font-color);
+    }
+
+    .action-button {
+        button {
+            background: var(--action-button-background);
+            border: 2px solid var(--action-button-border);
+            border-radius: 50%;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &-mobile {
+        display: none;
+    }
+
+    &-desktop {
+        display: block;
+    }
+
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+        &-search {
+            width: 80%;
+        }
+
+        &-container {
+            width: 80%;
+        }
+    }
+
+
+
+    @media only screen and (max-width: 768px) {
+        .weather {
+            font-size: 13px;
+
+            &-mobile {
+                display: block;
+                position: relative;
+            }
+
+            &-desktop {
+                display: none;
+            }
+
+            &-search {
+                width: 90%;
+                ;
+
+                .form-floating {
+                    width: 80%;
+                }
+            }
+
+            &-container {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            &-datetime {
+                font-size: 12px
+            }
+
+            &-details {
+                margin: 0.5rem;
+
+                &-list {
+                    flex-direction: column;
+                    text-align: right;
+                    position: absolute;
+                    right: 0;
+                    top: -1.5rem;
+                }
+
+
+            }
+
+            &-history {
+                padding: 1rem;
+            }
+
+            &-image {
+                right: 0;
+                top: -5rem;
+                width: 200px;
+            }
+
+
+        }
+    }
+}

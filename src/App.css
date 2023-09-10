@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+    font-family: "NotaSans";
+    src: url('./assets/NotoSans-Regular.ttf') format('woff2'),
+    url('./assets/NotoSans-Regular.ttf') format('truetype')
   }
+
+.light-theme {
+    --background-image: url(./assets/images/bg-light.png);
+    --search-icon-background: #6C40B5;
+    --action-button-background: #fff;
+    --action-button-border: none;
+    --body-font-color: #000;
+    --weather-font-color: #666666;
+    --weather-temperature-color: #6C40B5;
+    --container-bar-background: 250, 250, 250;
+    --floating-input: #212529a6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dark-theme {
+    --background-image: url(./assets/images/bg-dark.png);
+    --search-icon-background: #28124D;
+    --action-button-background: none;
+    --action-button-border: #666666;
+    --body-font-color: #fff;
+    --weather-font-color: #fff;
+    --weather-temperature-color: #fff;
+    --container-bar-background: 26, 26, 26;
+    --floating-input: #A9A9A9;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+    color: var(--body-font-color);
+    font-size: 15px;
+    font-family: 'NotaSans' !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.toggle-theme {
+    display: flex;
+    align-self: flex-end;
+    margin: 1rem 1rem 0;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #fff;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-label .ball {
+    background-color: var(--search-icon-background);
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
 }
